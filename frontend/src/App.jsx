@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoListItem from './components/PhotoListItem';
+
 import './App.scss';
 
 const sampleDataForPhotoListItem = {
@@ -14,7 +15,6 @@ const sampleDataForPhotoListItem = {
 };
 
 const App = () => {
-  // display multiple instances of a component more efficiently by using an Array helper method
   const photoListItems = [1, 2, 3].map((number) => {
     return <PhotoListItem key={number} photoData={sampleDataForPhotoListItem} />;
   });
