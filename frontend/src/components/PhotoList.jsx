@@ -1,4 +1,5 @@
 import React from "react";
+import PhotoListItem from "./PhotoListItem";
 
 import "../styles/PhotoList.scss";
 
@@ -59,9 +60,39 @@ const sampleDataForPhotoList = [
 const PhotoList = () => {
   return (
     <ul className="photo-list">
-      {/* Insert React */}
+      {sampleDataForPhotoList.map((photoData) => {
+        return (
+          <li key={photoData.id} className="photo-list__item">
+            <img
+              className="photo-list__image"
+              src={photoData.urls.regular}
+              alt=""
+            />
+            <div className="photo-list__user-details">
+              <img
+                className="photo-list__user-profile"
+                src={photoData.user.profile}
+                alt=""
+              />
+              <div className="photo-list__user-info">
+                {photoData.user.username}
+                <div className="photo-list__user-location">
+                  {photoData.location.city}, {photoData.location.country}
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };
 
 export default PhotoList;
+
+// const photoListItems = sampleDataForPhotoList.map((photoData) => {
+//   return <PhotoListItem key={photoData.id} photoData={photoData} />;
+// });
+
+// return <div className="photo-list">{photoListItems}</div>;
+// };
