@@ -13,10 +13,17 @@ const sampleDataForPhotoListItem = {
   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
 
-const App = () => (
-  <div className="App">
-    <PhotoListItem photoData={sampleDataForPhotoListItem} />
-  </div>
-);
+const App = () => {
+  // display multiple instances of a component more efficiently by using an Array helper method
+  const photoListItems = [1, 2, 3].map((number) => {
+    return <PhotoListItem key={number} photoData={sampleDataForPhotoListItem} />;
+  });
+
+  return (
+    <div className="photo-list">
+      {photoListItems}
+    </div>
+  );
+};
 
 export default App;
