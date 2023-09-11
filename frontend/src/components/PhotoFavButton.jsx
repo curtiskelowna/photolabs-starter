@@ -1,33 +1,14 @@
-import React, { useCallback, useState } from 'react';
-
+import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-  const [isFav, setIsFav] = useState(false);
-
-  const toggleFav = useCallback(() => {
-    setIsFav((prevIsFav) => !prevIsFav);
-  }, []);
+const PhotoFavButton = (props) => {
 
   return (
-    <button className="photo-list__fav-icon" onClick={toggleFav}>
-      <FavIcon selected={isFav} />
+    <button className="photo-list__fav-icon" onClick={props.onClick}>
+      <FavIcon selected={props.selected} />
     </button>
   );
-}
+};
 
 export default PhotoFavButton;
-
-// const PhotoFavButton = (props) => {
-//   const [isFav, setIsFav] = useState(false);
-//   const onFavButtonClick = useCallback(() => {
-//     setIsFav(!isFav);
-//   }, [isFav]);
-
-//   return (
-//     <button className="photo-list__fav-icon" onClick={onFavButtonClick}>
-//       <FavIcon selected={isFav} />
-//     </button>
-//   );
-// };
