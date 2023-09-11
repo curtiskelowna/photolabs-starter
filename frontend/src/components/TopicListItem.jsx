@@ -5,8 +5,8 @@ import "../styles/TopicListItem.scss";
 const TopicListItem = (props) => {
   const topicData = props.topicData;
   return (
-    <div className="top-nav-bar__topic-list__item">
-      <a href={`/topics/${topicData.slug}`}>{topicData.label}</a>
+    <div className="topic-list__item">
+      <span> {topicData.label} </span>
     </div>
   );
 };

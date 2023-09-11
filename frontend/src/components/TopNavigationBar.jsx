@@ -1,22 +1,17 @@
-// import React from 'react';
+import React from 'react';
+import TopicList from './TopicList';
 
-// import '../styles/TopNavigationBar.scss';
+import '../styles/TopNavigationBar.scss';
+import FavIcon from './FavIcon';
 
-// const TopNavigation = () => {
-//   return (
-//     <div className="top-nav-bar">
-//       <span className="top-nav-bar__logo">PhotoLabs</span>
-//       <div className="top-nav-bar__search-bar">
-//         <input type="text" placeholder="Search" />
-//       </div>
-//       <div className="top-nav-bar__menu">
-//         <a href="/topics">Topics</a>
-//       </div>
-//       <div className="top-nav-bar__user-profile">
-//         <img src="https://picsum.photos/seed/picsum/50/50" />
-//       </div>
-//     </div>
-//   );
-// };
+const TopNavigation = () => {
+  return (
+    <div className="top-nav-bar">
+      <span className="top-nav-bar__logo">PhotoLabs</span>
+        <TopicList />
+        <FavIcon selected={true} />
+    </div>
+  );
+};
 
-// export default TopNavigation;;
+export default TopNavigation;
