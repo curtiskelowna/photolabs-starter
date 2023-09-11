@@ -12,9 +12,22 @@ function PhotoFavButton() {
 
   return (
     <button className="photo-list__fav-icon" onClick={toggleFav}>
-      <FavIcon isFav={isFav} />
+      <FavIcon selected={isFav} />
     </button>
   );
 }
 
 export default PhotoFavButton;
+
+// const PhotoFavButton = (props) => {
+//   const [isFav, setIsFav] = useState(false);
+//   const onFavButtonClick = useCallback(() => {
+//     setIsFav(!isFav);
+//   }, [isFav]);
+
+//   return (
+//     <button className="photo-list__fav-icon" onClick={onFavButtonClick}>
+//       <FavIcon selected={isFav} />
+//     </button>
+//   );
+// };

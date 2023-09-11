@@ -9,7 +9,6 @@ const PhotoListItem = (props) => {
       <PhotoFavButton />
       <img className="photo-list__image" src={photoData.imageSource} />
       <div className="photo-list__user-details">
-
         <img className="photo-list__user-profile" src={photoData.profile}></img>
         <div className="photo-list__user-info">
           {photoData.username}
