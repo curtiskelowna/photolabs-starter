@@ -1,10 +1,10 @@
 import React from 'react';
+import PhotoList from 'components/PhotoList';
 
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhotoId }) => {
-  console.log("PhotoDetailsModal selectedPhotoId:", selectedPhotoId);
+const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite, toggleFavourite, toggleModal }) => {
   return (
     showModal ?
       (
@@ -12,7 +12,20 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhotoId }) => {
           <button className="photo-details-modal__close-button" onClick={() => { setShowModal(false); }}>
             <img src={closeSymbol} alt="close symbol" />
           </button>
-        </div >
+          <div className="photo-details-modal__images">
+            <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt={selectedPhoto.alt_description} />
+            <div className="photo-details-modal__header">
+              <img src={selectedPhoto.user.profile} alt="Profile" />
+              <div className="look-at-me-now">
+                {selectedPhoto.user.username}
+                {selectedPhoto.location && `${selectedPhoto.location.city}, ${selectedPhoto.location.country}`}
+              </div>
+              <div className="photo-details-modal__images">
+                <PhotoList photos={Object.values(selectedPhoto.similar_photos)} isFavourite={isFavourite} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />
+              </div>
+            </div>
+          </div>
+        </div>
       ) : null
   );
 };
