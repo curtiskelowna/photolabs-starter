@@ -8,15 +8,18 @@ import './App.scss';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [selectedPhotoId, setSelectedPhotoId] = useState(null);
 
-  const toggleModal = () => {
+  const toggleModal = (photoId) => {
+    console.log("App photoId:", photoId);
+    setSelectedPhotoId(photoId);
     setShowModal(true);
   };
 
   return (
     <div>
       <HomeRoute photos={photos} topics={topics} toggleModal={toggleModal} />
-      {showModal && <PhotoDetailsModal showModal={showModal} setShowModal={setShowModal} />}
+      {showModal && <PhotoDetailsModal showModal={showModal} setShowModal={setShowModal} photos={photos} selectedPhotoId={selectedPhotoId} />}
     </div>
   );
 }

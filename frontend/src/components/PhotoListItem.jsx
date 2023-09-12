@@ -7,7 +7,7 @@ const PhotoListItem = ({ photoData, selected, toggleFavourite, photoId, toggleMo
   return (
     <div className="photo-list__item">
       <PhotoFavButton selected={selected} toggleFavourite={() => toggleFavourite(photoId)} />
-      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => toggleModal(true)} />
+      <img className="photo-list__image" src={photoData.urls.regular} onClick={() => toggleModal(photoId)} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photoData.user.profile}></img>
         <div className="photo-list__user-info">

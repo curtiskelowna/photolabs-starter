@@ -6,6 +6,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = ({ photos, isFavourite, toggleModal, toggleFavourite }) => {
 
   const list = photos.map((photo) => {
+    console.log("PhotoList photoId:", photo.id);
     const selected = isFavourite(photo.id);
     return <PhotoListItem key={photo.id} photoId={photo.id} photoData={photo} selected={selected} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />;
   });
