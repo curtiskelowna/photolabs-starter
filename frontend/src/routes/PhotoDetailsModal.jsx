@@ -1,11 +1,13 @@
 import React from 'react';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 import '../styles/PhotoDetailsModal.scss';
 import '../styles/PhotoListItem.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite, toggleFavourite, toggleModal }) => {
+  const selected = isFavourite(selectedPhoto.id);
   return (
     showModal ?
       (
@@ -14,6 +16,7 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite
             <img src={closeSymbol} alt="close symbol" />
           </button>
           <div className="photo-details-modal__images">
+            <PhotoFavButton selected={selected} toggleFavourite={() => toggleFavourite(selectedPhoto.id)} />
             <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt={selectedPhoto.alt_description} />
             <div className="photo-details-modal__header">
               <div className="photo-list__user-details">
