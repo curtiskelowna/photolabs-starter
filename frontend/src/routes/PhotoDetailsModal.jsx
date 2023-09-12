@@ -2,6 +2,7 @@ import React from 'react';
 import PhotoList from 'components/PhotoList';
 
 import '../styles/PhotoDetailsModal.scss';
+import '../styles/PhotoListItem.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite, toggleFavourite, toggleModal }) => {
@@ -15,11 +16,20 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite
           <div className="photo-details-modal__images">
             <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt={selectedPhoto.alt_description} />
             <div className="photo-details-modal__header">
-              <img src={selectedPhoto.user.profile} alt="Profile" />
+              {/* <img src={selectedPhoto.user.profile} alt="Profile" />
               <div className="look-at-me-now">
                 {selectedPhoto.user.username}
                 {selectedPhoto.location && `${selectedPhoto.location.city}, ${selectedPhoto.location.country}`}
+              </div> */}
+
+              <div className="photo-list__user-details">
+                <img className="photo-list__user-profile" src={selectedPhoto.user.profile}></img>
+                <div className="photo-list__user-info">
+                  {selectedPhoto.user.username}
+                  <div className="photo-list__user-location" >{selectedPhoto?.location.city}, {selectedPhoto?.location.country}</div>
+                </div>
               </div>
+
               <div className="photo-details-modal__images">
                 <PhotoList photos={Object.values(selectedPhoto.similar_photos)} isFavourite={isFavourite} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />
               </div>
@@ -31,3 +41,4 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite
 };
 
 export default PhotoDetailsModal;
+
