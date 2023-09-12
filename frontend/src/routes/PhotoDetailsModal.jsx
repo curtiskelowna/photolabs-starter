@@ -16,12 +16,6 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite
           <div className="photo-details-modal__images">
             <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt={selectedPhoto.alt_description} />
             <div className="photo-details-modal__header">
-              {/* <img src={selectedPhoto.user.profile} alt="Profile" />
-              <div className="look-at-me-now">
-                {selectedPhoto.user.username}
-                {selectedPhoto.location && `${selectedPhoto.location.city}, ${selectedPhoto.location.country}`}
-              </div> */}
-
               <div className="photo-list__user-details">
                 <img className="photo-list__user-profile" src={selectedPhoto.user.profile}></img>
                 <div className="photo-list__user-info">
@@ -29,7 +23,7 @@ const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite
                   <div className="photo-list__user-location" >{selectedPhoto?.location.city}, {selectedPhoto?.location.country}</div>
                 </div>
               </div>
-
+              <h3>Similar Photos</h3>
               <div className="photo-details-modal__images">
                 <PhotoList photos={Object.values(selectedPhoto.similar_photos)} isFavourite={isFavourite} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />
               </div>
