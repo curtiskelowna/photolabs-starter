@@ -3,11 +3,11 @@ import PhotoListItem from "./PhotoListItem";
 
 import "../styles/PhotoList.scss";
 
-const PhotoList = (props) => {
+const PhotoList = ({ photos, isFavourite, toggleModal, toggleFavourite }) => {
 
-  const list = props.photos.map((photo) => {
-    const selected = props.isFavourite(photo.id);
-    return <PhotoListItem key={photo.id} photoData={photo} selected={selected} onClick={() => props.toggleFavourite(photo.id) } />;
+  const list = photos.map((photo) => {
+    const selected = isFavourite(photo.id);
+    return <PhotoListItem key={photo.id} photoId={photo.id} photoData={photo} selected={selected} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />;
   });
 
   return (

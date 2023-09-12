@@ -4,10 +4,11 @@ import TopNavigationBar from "./TopNavigationBar";
 
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ photos, topics }) => {
+const HomeRoute = ({ photos, topics, toggleModal }) => {
   const [favourites, setFavourites] = useState([]);
 
   const toggleFavourite = (id) => {
+    console.log(id);
     if (favourites.includes(id)) {
       setFavourites(favourites.filter((item) => item !== id));
     }
@@ -23,7 +24,7 @@ const HomeRoute = ({ photos, topics }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} numFavourites={favourites.length} />      <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} />
+      <TopNavigationBar topics={topics} numFavourites={favourites.length} />      <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} toggleModal={toggleModal} />
     </div>
   );
 };
