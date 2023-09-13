@@ -6,13 +6,14 @@ import '../styles/PhotoDetailsModal.scss';
 import '../styles/PhotoListItem.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ showModal, setShowModal, selectedPhoto, isFavourite, toggleFavourite, toggleModal }) => {
+const PhotoDetailsModal = ({ showModal, closeModal, selectedPhoto, isFavourite, toggleFavourite, toggleModal }) => {
+  if (!showModal || !selectedPhoto) return null;
   const selected = isFavourite(selectedPhoto.id);
   return (
     showModal ?
       (
         < div className="photo-details-modal" >
-          <button className="photo-details-modal__close-button" onClick={() => { setShowModal(false); }}>
+          <button className="photo-details-modal__close-button" onClick={() => closeModal()}>
             <img src={closeSymbol} alt="close symbol" />
           </button>
           <div className="photo-details-modal__images">
