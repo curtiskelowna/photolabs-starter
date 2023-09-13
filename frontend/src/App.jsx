@@ -11,13 +11,12 @@ function App() {
   const {
     showModal,
     toggleModal,
+    closeModal,
     selectedPhoto,
     toggleFavourite,
     isFavourite,
-    favourites,
-    closeModal
+    favourites
   } = useApplicationData();
-
   return (
     <div>
       <HomeRoute

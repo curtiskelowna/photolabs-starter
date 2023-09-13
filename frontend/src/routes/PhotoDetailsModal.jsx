@@ -21,12 +21,13 @@ const PhotoDetailsModal = ({ showModal, closeModal, selectedPhoto, isFavourite, 
             <img className="photo-details-modal__image" src={selectedPhoto.urls.full} alt={selectedPhoto.alt_description} />
             <div className="photo-details-modal__header">
               <div className="photo-list__user-details">
-                <img className="photo-list__user-profile" src={selectedPhoto.user.profile}></img>
+                <img className="photo-list__user-profile" src={selectedPhoto.user.profile} alt="User Profile"></img>
                 <div className="photo-list__user-info">
                   {selectedPhoto.user.username}
                   <div className="photo-list__user-location" >{selectedPhoto?.location.city}, {selectedPhoto?.location.country}</div>
                 </div>
               </div>
+              <br></br>
               <h3>Similar Photos</h3>
               <div className="photo-details-modal__images">
                 <PhotoList photos={Object.values(selectedPhoto.similar_photos)} isFavourite={isFavourite} toggleModal={toggleModal} toggleFavourite={toggleFavourite} />
