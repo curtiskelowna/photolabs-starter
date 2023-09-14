@@ -16,7 +16,6 @@ function App() {
     favourites,
     photos,
     topics,
-    getPhotosByTopic,
     handleFetch
   } = useApplicationData();
   return (
@@ -28,7 +27,6 @@ function App() {
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
         numFavourites={favourites.length}
-        getPhotosByTopic={getPhotosByTopic}
         handleFetch={handleFetch}
       />
       {showModal &&
