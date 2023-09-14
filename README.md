@@ -31,3 +31,7 @@ Clicking on the different topics in the top navigation bar will render photos fr
 
 ## Screenshots
 
+!["Home Page"](https://github.com/curtiskelowna/photolabs-starter/blob/main/docs/home-page.png?raw=true)
+!["Open Modal"](https://github.com/curtiskelowna/photolabs-starter/blob/main/docs/open-modal.png?raw=true)
+!["Liked Photos Notification"](https://github.com/curtiskelowna/photolabs-starter/blob/main/docs/liked-photos-notification.png?raw=true)
+!["Photos By Topic"](https://github.com/curtiskelowna/photolabs-starter/blob/main/docs/photos-by-topic.png?raw=true)
