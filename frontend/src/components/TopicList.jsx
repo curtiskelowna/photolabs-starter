@@ -3,9 +3,9 @@ import TopicListItem from "./TopicListItem";
 
 import "../styles/TopicList.scss";
 
-const TopicList = ({ topics }) => {
+const TopicList = ({ topics, handleFetch }) => {
   const topicInfo = topics.map((topic) => {
-    return <TopicListItem key={topic.id} topicData={topic} />;
+    return <TopicListItem key={topic.id} topicData={topic} handleFetch={handleFetch} />;
   });
 
   return (

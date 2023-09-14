@@ -6,7 +6,8 @@ const ACTIONS = {
   CLOSE_MODAL: "CLOSE_MODAL",
   OPEN_MODAL: "OPEN_MODAL",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
-  SET_TOPIC_DATA: "SET_TOPIC_DATA"
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
 };
 
 function reducer(state, action) {
@@ -27,6 +28,8 @@ function reducer(state, action) {
       return { ...state, photoData: action.payload };
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
+    case ACTIONS.GET_PHOTOS_BY_TOPIC:
+      return { ...state, photoData: action.payload };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -39,8 +42,22 @@ export default function useApplicationData() {
     favourites: [],
     selectedPhoto: null,
     photoData: [],
-    topicData: []
+    topicData: [],
   });
+
+  const getPhotosByTopic = (topic_id) => {
+    return fetch(`http://localhost:8001/api/topics/photos/${topic_id}`)
+      .then(response => {
+        if (!response.ok) { throw Error(response.statusText); }
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new TypeError("Oops, we haven't got JSON!");
+        }
+        return response.json();
+      }
+      )
+      .catch(error => console.error('Error: ', error));
+  };
 
   useEffect(() => {
     fetch('http://localhost:8001/api/photos')
@@ -85,6 +102,12 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.CLOSE_MODAL });
   };
 
+  const handleFetch = (topic_id) => {
+    getPhotosByTopic(topic_id)
+      .then(data => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: data }))
+      .catch(error => console.error('Error: ', error));
+  };
+
   return {
     photos: state.photoData,
     topics: state.topicData,
@@ -94,6 +117,8 @@ export default function useApplicationData() {
     selectedPhoto: state.selectedPhoto,
     toggleFavourite,
     isFavourite,
-    favourites: state.favourites
+    favourites: state.favourites,
+    getPhotosByTopic,
+    handleFetch
   };
 }

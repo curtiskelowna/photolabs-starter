@@ -15,7 +15,9 @@ function App() {
     isFavourite,
     favourites,
     photos,
-    topics
+    topics,
+    getPhotosByTopic,
+    handleFetch
   } = useApplicationData();
   return (
     <div>
@@ -26,6 +28,8 @@ function App() {
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
         numFavourites={favourites.length}
+        getPhotosByTopic={getPhotosByTopic}
+        handleFetch={handleFetch}
       />
       {showModal &&
         <PhotoDetailsModal

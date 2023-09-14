@@ -4,11 +4,12 @@ import TopNavigationBar from "components/TopNavigationBar";
 
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = ({ photos, topics, toggleModal, toggleFavourite, isFavourite, numFavourites }) => {
+const HomeRoute = ({ photos, topics, toggleModal, toggleFavourite, isFavourite, numFavourites, handleFetch }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} numFavourites={numFavourites} />      <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} toggleModal={toggleModal} />
+      <TopNavigationBar topics={topics} numFavourites={numFavourites} handleFetch={handleFetch} />
+      <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} toggleModal={toggleModal} />
     </div>
   );
 };
