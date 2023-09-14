@@ -1,7 +1,5 @@
 import React from 'react';
 import HomeRoute from 'routes/HomeRoute';
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
@@ -15,7 +13,9 @@ function App() {
     selectedPhoto,
     toggleFavourite,
     isFavourite,
-    favourites
+    favourites,
+    photos,
+    topics
   } = useApplicationData();
   return (
     <div>
